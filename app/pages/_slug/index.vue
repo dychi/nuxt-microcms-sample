@@ -23,7 +23,6 @@ export default Vue.extend({
         headers: { 'X-API-KEY': '35d930d3-1783-410b-b4df-698d147242c4' },
       }
     )
-    console.log(data)
     return {
       title: data.title,
       body: data.body,
