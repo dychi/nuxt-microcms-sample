@@ -19,13 +19,10 @@ export default Vue.extend({
       contents: [],
     }
   },
-  async asyncData({ $axios }) {
-    const { data } = await $axios.get(
-      'https://nuxtsampleproduct.microcms.io/api/v1/news',
-      {
-        headers: { 'X-API-KEY': '35d930d3-1783-410b-b4df-698d147242c4' },
-      }
-    )
+  async asyncData({ $config, $axios }) {
+    const { data } = await $axios.get(`${$config.baseURL}`, {
+      headers: { 'X-API-KEY': $config.XAPIKEY },
+    })
     return { contents: data.contents }
   },
 })
